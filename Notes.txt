@@ -1,3 +1,0 @@
-Index of Class = # Rings
-
-By the requirement of libsvm, since the label is the number of rings, the label must be the first entry in the line, and rings is the last entry in each line in the original abalone dataset, the number of rings for each line must be pulled to the front. Additionally, each non-ring data entry must be given a unique index, with indices listed in ascending order.
