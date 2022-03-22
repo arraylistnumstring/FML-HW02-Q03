@@ -1,14 +1,41 @@
 """
-    Split data randomly into n files, assuming one entry of data per row.
+    Do binary classification for groups 0 := {# Rings \in [1,9]}, 1 := {# Rings > 9}.
 """
 
 __author__ = "Brian H. Chiang"
 
-import numpy
+from libsvm.svmutil import *    # Should be ok, as all libsvm functions start with svm_
 import os.path
 import sys
 
+MAX_D = 5
+MAX_K = 7
+NUM_CROSS_VALIDATION = 5
+
+FILENAMES = ["data/prepped/split-training" + str(i) for i in range(NUM_CROSS_VALIDATION)]
+
 def main():
+
+    # d
+    polyn_degrees = [i for i in range(1,MAX_D+1)]
+
+    k = [i for i in range(-MAX_K,MAX_K+1)]
+
+    # C
+    cost = [3^i for i in k]
+
+    for file in FILENAMES:
+        labels, data = svm_read_problem(file)
+
+        # Pre-process labels so either they are in group 0 (<= 9) or 1 (> 9)
+        remapped_labels = [0 if label <= 9 else 1 for label in labels]
+
+        for d in polyn_degrees:
+            for C in cost:
+               svm_train(remapped_labels, data, "" 
+            # End loop over cost parameter
+        # End loop over polynomial degrees
+    # End loop over files
 
     # Check for correct usage
     if len(sys.argv) < 4 or not sys.argv[1].isdigit:
