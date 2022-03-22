@@ -5,7 +5,6 @@
 
 for d in {1..5}
 do
-	echo "d=$d" >> $2
 	filenames="$1$d*"
 	for file in $filenames
 	do

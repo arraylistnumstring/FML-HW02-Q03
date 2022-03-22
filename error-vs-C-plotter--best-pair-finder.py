@@ -1,5 +1,5 @@
 """
-    Plot error in training data and find best pair (C^*, d^*).
+    Plot error in training data vs. log_3(C) and find best pair (C^*, d^*).
 """
 
 __author__ = "Brian H. Chiang"

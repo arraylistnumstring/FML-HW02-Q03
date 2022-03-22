@@ -2,6 +2,30 @@
 
 Requires use of the `libsvm` library.
 
+## Process
+
+- Reformat data so that `abalones` is split as indicated in the homework assignment and is in `libsvm` format.
+
+### Question 3
+- Run
+	```
+		./question3-training.sh 9
+		./question3-error-data.sh question3-5-fold-cross-validation-data/polyn-degree- question3-error-data
+	```
+
+- Reformat `question3-error-data` so that it consists purely of the values n provided by "Cross-Validation Accuracy = n%"
+
+- Run
+	```
+		python error-vs-C-plotter--best-pair-finder.py question3-error-data
+	```
+	which produces 
+
+### Question 4
+- Run
+
+
+
 ## Notes
 
 Index of Class = # Rings
