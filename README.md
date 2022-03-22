@@ -18,14 +18,9 @@ Requires use of the `libsvm` library.
 
 		# Extract cross-validation accuracy from training output, grouped by split and clean data so it is ready to be fed into Python program
 		./training-cross-validation-error-pull.sh 9
-	```
 
-- Reformat `question3-error-data` so that it consists purely of the values n provided by "Cross-Validation Accuracy = n%"
-
-- Run
-	```
 		# Produce training error vs. C plot and best pair (C*, d*)
-		python error-vs-C-plotter--best-pair-finder.py question3-error-data
+		python error-vs-C-plotter--best-pair-finder.py question3-5-fold-cross-validation-data/polyn-degree-
 	```
 
 ### Question 4
@@ -33,21 +28,16 @@ Requires use of the `libsvm` library.
 - Run
 	```
 		# Run testing for 1 <= d <= 5 using C*
-		./question4-training.sh
+		./question4-testing.sh
 
-		# Extract cross-validation accuracy from testing output
-		./testing-cross-validation-error-pull.sh question4-5-fold-cross-validation-data-cost-27/polyn-degree- question4-error-data
-	```
+		# Extract cross-validation accuracy from testing output and clean data so it is ready to be fed into Python program
+		./testing-cross-validation-error-pull.sh question4-5-fold-cross-validation-data-k-7/polyn-degree- question4-accuracy-data
 
-- Reformat `question4-error-data` so that it consists purely of the values n provided by "Cross-Validation Accuracy = n%"
-
-- Run
-	```
 		# Produce testing error vs. d plot
-		python error-vs-d-plotter.py question4-error-data
+		python error-vs-d-plotter.py question4-accuracy-data
 
 		# Extract total number of support vectors from testing output and clean file so it is ready to be fed into Python program
-		./support-vector-number-pull.sh question4-5-fold-cross-validation-data-cost-27/polyn-degree- question4-support-vectors
+		./support-vector-number-pull.sh question4-5-fold-cross-validation-data-k-7/polyn-degree- question4-support-vectors
 
 		# Produce average number of support vectors vs. d plot
 		python support-vectors-vs-d-plotter.py question4-support-vectors
@@ -59,6 +49,12 @@ Requires use of the `libsvm` library.
 	```
 		# Run training and testing in pairs
 		./question5-training-testing-pairs.sh
+
+		# Extract cross-validation accuracy from testing output and clean data so it is ready to be fed into Python program
+		./pair-cross-validation-pull.sh question5-5-fold-cross-validation-data-polyn-degree-1-k-7/split- question5-accuracy-data
+
+		# Produce testing error histogram
+		python training-sample-error-bar-graph-plotter.py question5-accuracy-data
 	```
 
 

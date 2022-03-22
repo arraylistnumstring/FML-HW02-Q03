@@ -28,7 +28,7 @@ def main():
     with open(sys.argv[1], encoding = "utf-8") as input_file:
         line = input_file.readline()
 
-        d = [1]
+        d = []
         errors = []
 
         while line: # While line is not empty, i.e. there are lines to be read

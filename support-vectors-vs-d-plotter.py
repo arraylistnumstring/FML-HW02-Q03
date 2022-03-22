@@ -28,15 +28,16 @@ def main():
     with open(sys.argv[1], encoding = "utf-8") as input_file:
         line = input_file.readline()
 
-        d = [1]
+        d = []
         avg_num_supp_vecs = []
         curr_num_supp_vecs = []
 
         while line: # While line is not empty, i.e. there are lines to be read
             if line == "\n":
                 d.append(len(d) + 1)
-                avg_num_supp_vecs.append(numpy.mean(curr_num_supp_vecs))
-                curr_num_supp_vecs = []
+                if len(curr_num_supp_vecs) > 0:
+                    avg_num_supp_vecs.append(numpy.mean(curr_num_supp_vecs))
+                    curr_num_supp_vecs = []
             else:
                 curr_num_supp_vecs.append(float(line))
 
