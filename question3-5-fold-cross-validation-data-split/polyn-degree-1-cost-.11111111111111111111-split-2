@@ -1,0 +1,31 @@
+*
+optimization finished, #iter = 215
+nu = 0.811328
+obj = -39.794042, rho = -0.809425
+nSV = 402, nBSV = 400
+Total nSV = 402
+*
+optimization finished, #iter = 215
+nu = 0.783310
+obj = -37.857827, rho = -0.820576
+nSV = 388, nBSV = 384
+Total nSV = 388
+*
+optimization finished, #iter = 211
+nu = 0.804260
+obj = -39.115713, rho = -0.863352
+nSV = 399, nBSV = 396
+Total nSV = 399
+*
+optimization finished, #iter = 205
+nu = 0.794490
+obj = -38.486970, rho = -0.833014
+nSV = 392, nBSV = 390
+Total nSV = 392
+*
+optimization finished, #iter = 213
+nu = 0.795679
+obj = -38.370336, rho = -0.840593
+nSV = 392, nBSV = 390
+Total nSV = 392
+Cross Validation Accuracy = 75.1623%

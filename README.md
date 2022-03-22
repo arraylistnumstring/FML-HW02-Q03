@@ -4,17 +4,20 @@ Requires use of the `libsvm` library.
 
 ## Process
 
-- Reformat data so that `abalones` is split as indicated in the homework assignment and is in `libsvm` format.
+- Reformat data so that `abalones` is split as indicated in the homework assignment into training and testing data and is in `libsvm` format (please see the Notes section below for more specifics).
 
 ### Question 3
 
 - Run
 	```
+		# Split data into 5 files, letting each line be placed in a given file approximately uniformly at random using numpy's "pseudo-random" number generator 
+		python rand-row-split.py 5 data/prepped--binary/rescaled-training data/prepped--binary/split-training-
+
 		# Run training for -9 <= k <= 9 and 1 <= d <= 5
 		./question3-training.sh 9
 
-		# Extract cross-validation accuracy from training output
-		./cross-validation-error-pull.sh question3-5-fold-cross-validation-data/polyn-degree- question3-error-data
+		# Extract cross-validation accuracy from training output, grouped by split and clean data so it is ready to be fed into Python program
+		./training-cross-validation-error-pull.sh 9
 	```
 
 - Reformat `question3-error-data` so that it consists purely of the values n provided by "Cross-Validation Accuracy = n%"
@@ -33,7 +36,7 @@ Requires use of the `libsvm` library.
 		./question4-training.sh
 
 		# Extract cross-validation accuracy from testing output
-		./cross-validation-error-pull.sh question4-5-fold-cross-validation-data-cost-27/polyn-degree- question4-error-data
+		./testing-cross-validation-error-pull.sh question4-5-fold-cross-validation-data-cost-27/polyn-degree- question4-error-data
 	```
 
 - Reformat `question4-error-data` so that it consists purely of the values n provided by "Cross-Validation Accuracy = n%"
@@ -48,6 +51,14 @@ Requires use of the `libsvm` library.
 
 		# Produce average number of support vectors vs. d plot
 		python support-vectors-vs-d-plotter.py question4-support-vectors
+	```
+
+## Question 5
+
+- Run
+	```
+		# Run training and testing in pairs
+		./question5-training-testing-pairs.sh
 	```
 
 

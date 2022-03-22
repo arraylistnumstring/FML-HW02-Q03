@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# e() is exp() and l() is ln() for calculator bc
-# To allow exponentiation by fractions and negative numbers, we use
-#	x^n = exp(log(x^n)) = exp(n log(x))
-
-# First command-line argument is the positive integer representing the maximal value of k, for
-# C=3^k ranging from k \in [-max_k, max_k]
-
 # Degree of polynomial kernel
 d=1
 while [ $d -le 5 ]
